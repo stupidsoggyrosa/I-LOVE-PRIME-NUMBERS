@@ -26,6 +26,7 @@ def checkNumbers(num):
          print("No")
 def game():
     points = 0
+    lives = 3
     while True:
         num = r.randint(2, 55171)
         answer = input("Is " + str(num) + " prime? (yes or no, or quit)")
@@ -42,4 +43,8 @@ def game():
             points += 1
             print("Correct! Points: " + str(points))
         else:
-            print("Wrong!")
+            lives -= 1
+            print("Wrong! Lives: " + str(lives))
+        if lives == 0:
+            print("Game over! Final score: " + str(points))
+            break
