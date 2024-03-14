@@ -48,3 +48,30 @@ def game():
         if lives == 0:
             print("Game over! Final score: " + str(points))
             break
+def factorization(num):
+    numList = []
+    factorList = []
+    if isPrime(num):
+        print("This number is prime.")
+    else:
+        for i in range(2, num):
+            if isPrime(i):
+                numList.append(i)
+        while not isPrime(num):
+            for i in range(0, len(numList)):
+                if num % numList[i] == 0:
+                    factorList.append(numList[i])
+                    num = int(num / numList[i])
+                    break
+        factorList.append(num)
+        output = ""
+        for i in range(0, len(factorList)):
+            if i == len(factorList) - 1:
+                output = output + str(factorList[i]) + " "
+            else:
+                output = output + str(factorList[i]) + " * "
+        print(output)
+
+
+
+
